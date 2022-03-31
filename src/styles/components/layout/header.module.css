@@ -1,0 +1,27 @@
+.docHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+  padding: 0 250px;
+  box-sizing: border-box;
+  background: #e5e5e5;
+}
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.navBar {
+  display: flex;
+}
+.list {
+  display: flex;
+}
+.list li {
+  margin-right: 24px;
+}
+a {
+  color: #1a1a1a;
+  font-weight: 700;
+  text-decoration: none;
+}
