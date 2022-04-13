@@ -2,6 +2,7 @@
 title: "About me"
 date: "2020-03-31"
 navbar: "about"
+image: "/static/images/myimage.jpg"
 ---
 
 # 어바웃 페이지 메인입니다

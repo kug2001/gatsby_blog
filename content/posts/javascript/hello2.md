@@ -7,4 +7,4 @@ stack: "javascript"
 content: ""
 ---
 
-나의 두번째 페이지 입니다.
+# 나의 두번째 페이지 입니다.

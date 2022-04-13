@@ -1,0 +1,22 @@
+.itemPaging{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.linkPage{
+  margin: 0 10px;
+  color: #e5e5e5;
+  cursor: pointer;
+}
+
+.linkPage.active{
+  color: #1a1a1a;
+}
+
+.linkPrev + .linkPrev{
+  margin-left: 10px;
+}
+.linkNext + .linkNext{
+  margin-left: 10px;
+}

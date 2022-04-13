@@ -11,7 +11,8 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-postcss`,
       options: {
         cssLoaderOptions: {
-          camelCase: false,
+          exportLocalsConvention: false,
+          namedExport: false,
         },
       },
     },

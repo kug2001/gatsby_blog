@@ -1,0 +1,20 @@
+.contentDoc{
+  margin: 40px auto;
+}
+.postList{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.postList li{
+  width: 250px;
+  margin: 20px 10px;
+  padding: 30px 20px;
+  border: 1px solid #e5e5e5
+}
+.postTit{
+  font-size: 1.2rem;
+}
+.areaImg{
+  height: 200px;
+}
