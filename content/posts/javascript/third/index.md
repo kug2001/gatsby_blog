@@ -2,8 +2,9 @@
 slug: "/blog/my-first-post3"
 date: "2019-05-20"
 title: "My first blog post3"
-navbar : "blog"
-stack: "javascript"
+hero_image: "./testImg2.jpg"
+page : "blog"
+stack: ["vue"]
 content: ""
 ---
 

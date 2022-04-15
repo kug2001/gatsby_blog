@@ -52,7 +52,7 @@ const IndexPage = ({ data } : graphqlData) => {
 
 export const query = graphql`
   {
-    allMarkdownRemark(filter: {frontmatter: {navbar: {eq: "home"}}}) {
+    allMarkdownRemark(filter: {frontmatter: {page: {eq: "home"}}}) {
       edges {
         node {
           html

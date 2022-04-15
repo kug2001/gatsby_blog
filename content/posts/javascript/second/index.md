@@ -2,8 +2,9 @@
 slug: "/blog/my-first-post2"
 date: "2019-05-05"
 title: "My first blog post2"
-navbar : "blog"
-stack: "javascript"
+hero_image: "./test2.png"
+page : "blog"
+stack: ["react"]
 content: ""
 ---
 

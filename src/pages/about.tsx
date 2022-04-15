@@ -20,7 +20,7 @@ function AboutPage({ data }: Props) {
 
 export const query = graphql`
   {
-    allMarkdownRemark(filter: {frontmatter: {navbar: {eq: "about"}}}) {
+    allMarkdownRemark(filter: {frontmatter: {page: {eq: "about"}}}) {
       edges {
         node {
           html

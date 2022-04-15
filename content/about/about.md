@@ -1,7 +1,7 @@
 ---
 title: "About me"
 date: "2020-03-31"
-navbar: "about"
+page: "about"
 image: "/static/images/myimage.jpg"
 ---
 

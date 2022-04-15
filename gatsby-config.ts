@@ -1,5 +1,4 @@
 import type { GatsbyConfig } from "gatsby";
-import { resolve } from "path";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -16,51 +15,62 @@ const config: GatsbyConfig = {
         },
       },
     },
-    "gatsby-plugin-image", 
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-lodash",
     "gatsby-plugin-react-helmet", 
-    "gatsby-transformer-remark",
-    "gatsby-plugin-sitemap", 
-    "gatsby-plugin-sharp", 
-    "gatsby-transformer-sharp", 
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 590,
+            },
+          },
+        ],
+      },
+    },
+    "gatsby-plugin-sitemap",
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "images",
-        "path": "./src/images/"
+        "path": `./src/images/`,
       },
-      __key: "images"
     }, 
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "pages",
-        "path": "./src/pages/"
+        "path": `./src/pages/`,
       },
-      __key: "pages"
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "posts",
-        "path": "./content/posts/"
+        "path": `./content/posts/`,
       },
-      __key: "posts"
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "about",
-        "path": "./content/about/"
+        "path": `./content/about/`,
       },
-      __key: "about"
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "home",
-        "path": "./content/home/"
+        "path": `./content/home/`,
       },
-      __key: "home"
     },
   ]
 };
