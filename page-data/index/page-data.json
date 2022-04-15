@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-index-tsx",
+    "path": "/",
+    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"html":"<h1>Weclcome to my Blog!</h1>\n<h2>저의 블로그에 오신 여러분을 환영합니다.</h2>\n<p>현재 저의 블로그는 gatsby로 빌드된 블로그 입니다.</p>\n<p>이 블로그 운영을 통하여 기술과 정보를 공유하고 성장하기를 바라며 제작하였습니다.</p>\n<p>부족하거나, 미약할 수 있으나 저의 작은 날개짓이 큰 변화를 일으키는 기회가 되길 바라며</p>\n<p>함께 응원해주고 격려해주셨으면 좋겠습니다!</p>","frontmatter":{"date":"2020-03-31","title":"메인페이지 입니다","subtitle":"사람과 사람을 연결하는 Bridge Builder가 꿈인 Jayden입니다!"}}}]}},"pageContext":{}},
+    "staticQueryHashes": []}
