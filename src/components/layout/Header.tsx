@@ -12,7 +12,7 @@ const Header: React.FC<Props> = ( props ) => {
   return (
     <header className={docHeader}>
       <h1>
-        <a href="/">Bridge Builder의 블로그</a>
+        <Link to="/">Bridge Builder의 블로그</Link>
       </h1>
       <nav className={navBar}>
         <ul className={list}>
