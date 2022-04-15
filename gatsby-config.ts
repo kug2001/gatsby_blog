@@ -1,9 +1,10 @@
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
+  pathPrefix: `/gatsby_blog`,
   siteMetadata: {
     title: `brigeBuilder`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://kug2001.github.io/gatsby_blog/`
   },
   plugins: [
     {
