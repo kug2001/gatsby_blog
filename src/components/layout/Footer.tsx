@@ -1,16 +1,13 @@
 import React from 'react';
-import {
-  docFooter,
-  titFooter,
-} from '../../styles/components/layout/footer.module.css';
+import * as styles from '../../styles/components/layout/footer.module.css';
 
 type Props = {};
 
 const Footer: React.FC<Props> = ( props ) => {
 
   return (
-    <footer className={docFooter}>
-      <strong className={titFooter}> Blog created by Jayden | Designed by Jayden</strong>
+    <footer className={styles.docFooter}>
+      <strong className={styles.titFooter}> Blog created by Jayden | Designed by Jayden</strong>
     </footer>
   )
 }

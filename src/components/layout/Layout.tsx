@@ -1,15 +1,13 @@
 import React from 'react';
 import { Header, Footer } from './';
-import {
-  containerDoc,
-} from '../../styles/components/layout/layout.module.css';
+import * as styles from '../../styles/components/layout/layout.module.css';
 import '../../styles/reset.css';
 
 type ReactChild = { children : React.ReactNode };
 
 const Layout: React.FC<ReactChild> = ( { children }) => {
   return (
-    <div className={containerDoc}>
+    <div className={styles.containerDoc}>
       <Header />
       {children}
       <Footer />

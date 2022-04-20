@@ -1,21 +1,17 @@
 import React from 'react';
 import { Link } from "gatsby"
-import {
-  docHeader,
-  list,
-  navBar,
-} from '../../styles/components/layout/header.module.css';
+import * as styles from '../../styles/components/layout/header.module.css';
 
 type Props = {};
 
 const Header: React.FC<Props> = ( props ) => {
   return (
-    <header className={docHeader}>
+    <header className={styles.docHeader}>
       <h1>
         <Link to="/">Bridge Builder의 블로그</Link>
       </h1>
-      <nav className={navBar}>
-        <ul className={list}>
+      <nav className={styles.navBar}>
+        <ul className={styles.list}>
           <li>
             <Link to="/">Home</Link>
           </li>

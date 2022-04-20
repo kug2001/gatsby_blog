@@ -1,14 +1,7 @@
 import * as React from "react";
 import { graphql } from 'gatsby';
 import { Layout } from '../components/layout';
-import {
-  docMain,
-  contentHome,
-  areaMain,
-  titHome,
-  txtHome,
-  txtSub,
-} from '../styles/page/index.module.css'
+import * as styles from '../styles/page/index.module.css'
 
 type graphqlData = {
   data: {
@@ -34,15 +27,15 @@ const IndexPage = ({ data } : graphqlData) => {
   console.log(data);
   return (
     <Layout>
-      <main className={docMain}>
+      <main className={styles.docMain}>
         <h1 className="screen_out">{frontmatter.title}</h1>
-        <div className={areaMain}>
-          <strong className={titHome}>
-            <span className={txtHome}>{"</>"}</span>
-            <span className={txtSub}>{frontmatter.subtitle}</span>
+        <div className={styles.areaMain}>
+          <strong className={styles.titHome}>
+            <span className={styles.txtHome}>{"</>"}</span>
+            <span className={styles.txtSub}>{frontmatter.subtitle}</span>
           </strong>
         </div>
-        <article className={contentHome}>
+        <article className={styles.contentHome}>
           <div dangerouslySetInnerHTML={{__html:html}}></div>
         </article>
       </main>
