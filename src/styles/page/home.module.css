@@ -1,0 +1,91 @@
+:root {
+  --ti-cursor-color: dodgerblue;
+  --ti-cursor-font-size: 40px;
+  --ti-cursor-margin-left: 0.10rem;
+  /* --ti-cursor-line-height: 4rem; */
+}
+
+.docMain {
+  /* margin: 0 auto; */
+  /* padding: 0 40px; */
+  /* max-width: 1120px; */
+}
+.areaHead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  margin: 0 auto;
+  background: #1E222B;
+}
+.typeit{
+  color: #1E222B;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+.typeit > span{
+  color: #fff;
+  line-height: 70px;
+}
+.areaContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+}
+.contentHead{
+  padding: 200px 0;
+  font-size: 40px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.contentHead em{
+  color: #715741;
+}
+.areaVision{
+  height: 500px;
+  background: #715741;
+}
+.areaStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 150px 0;
+  background: #1E222B;
+  /* background: #fff; */
+}
+.areaStackCard{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.boxStackCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 10px;
+  width: 120px;
+  height: 150px;
+  border: 3px solid #fff;
+  border-radius: 30px;
+  /* background: #fff; */
+}
+.titStack {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+.boxStackCard svg{
+  margin-bottom: 10px;
+  font-size: 4rem;
+  fill: #fff;
+}
+.txtInfo{
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 100px;
+}

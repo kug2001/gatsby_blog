@@ -4,8 +4,9 @@
   align-items: center;
   height: 72px;
   padding: 0 250px;
+  /* border-bottom: 1px solid #e; */
   box-sizing: border-box;
-  background: #e5e5e5;
+  background: #fff;
 }
 h1 {
   font-size: 20px;
