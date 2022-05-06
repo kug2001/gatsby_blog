@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-markdown-remark-frontmatter-slug-tsx",
     "path": "/null/",
-    "result": {"data":{"markdownRemark":{"html":"<h1>어바웃 페이지 메인입니다</h1>\n<p>저는 성장하고, 성장시키고 싶은 개발자 제이든 입니다.\n비젼은 Bridge Builder로서 사람과 사람을 연결해주는 it개발자 또한 귀한 새내기를 성장시키기 위해 도전하는 개발자가 되고 싶습니다.</p>","frontmatter":{"date":"March 31, 2020","slug":null,"title":"About me","hero_image":null}}},"pageContext":{"id":"f3216201-b0de-51e1-b0f8-099b89aeaa64","frontmatter__slug":null,"__params":{"frontmatter__slug":"null"}}},
+    "result": {"data":{"markdownRemark":{"html":"","frontmatter":{"date":"March 31, 2020","slug":null,"title":"메인페이지 입니다","hero_image":null}}},"pageContext":{"id":"e303aa3c-9bb9-56d1-a4d4-1315da31a797","frontmatter__slug":null,"__params":{"frontmatter__slug":"null"}}},
     "staticQueryHashes": []}

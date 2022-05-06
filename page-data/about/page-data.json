@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-about-tsx",
     "path": "/about/",
-    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"html":"<h1>어바웃 페이지 메인입니다</h1>\n<p>저는 성장하고, 성장시키고 싶은 개발자 제이든 입니다.\n비젼은 Bridge Builder로서 사람과 사람을 연결해주는 it개발자 또한 귀한 새내기를 성장시키기 위해 도전하는 개발자가 되고 싶습니다.</p>","frontmatter":{"date":"2020-03-31","title":"About me"}}}]}},"pageContext":{}},
+    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"html":"<h1>안녕하세요 제이든입니다!</h1>\n<p>34살에 늦게 IT개발에 뛰어들어 개발을 시작하게 되었습니다.</p>\n<p>늦게 시작한 만큼 그동안 개발일을 하고자 모아놨던 열정을 늦게 터트리고 있습니다.</p>\n<p>단순한 개발자가 되고 싶은 것이 아닌,</p>\n<p>세상을 이롭게 바꿀 수 있는 무한한 가능성이 있는 이 일을 위해</p>\n<p>수고하고 노력하며 헌신하려고 합니다.</p>\n<p>부족하거나, 또는 틀린 내용도 있을 수 있지만, 질책과 책망보다는</p>\n<p>도움의 손길을 빌려주시면 감사하겠습니다!</p>","frontmatter":{"date":"2020-03-31","title":"About me"}}}]}},"pageContext":{}},
     "staticQueryHashes": []}
