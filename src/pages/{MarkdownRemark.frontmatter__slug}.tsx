@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout } from '../components/layout';
+import { Layout } from '@layout';
 import { graphql, PageProps } from "gatsby";
 import { getImage, GatsbyImage, ImageDataLike } from 'gatsby-plugin-image';
 

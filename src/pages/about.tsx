@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Layout } from '../components/layout';
-import * as styles from '../styles/page/about.module.css'
+import { Layout } from '@layout';
+import * as styles from '@styles/page/about.module.css';
 
 type Props = { data: any }
 

@@ -20,7 +20,14 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-lodash",
-    "gatsby-plugin-react-helmet", 
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: 'gatsby-plugin-typescript',
+      options: {
+        isTSX: true,
+        allExtensions: true,
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

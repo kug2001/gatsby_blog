@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "gatsby"
-import * as styles from '../../styles/components/layout/header.module.css';
+import * as styles from '@styles/components/layout/header.module.css';
 
 type Props = {};
 

@@ -30,6 +30,7 @@
     "gatsby-plugin-react-helmet": "^5.10.0",
     "gatsby-plugin-sharp": "^4.10.2",
     "gatsby-plugin-sitemap": "^5.10.2",
+    "gatsby-plugin-typescript": "^4.13.0",
     "gatsby-remark-images": "^6.12.1",
     "gatsby-source-filesystem": "^4.10.1",
     "gatsby-transformer-remark": "^5.11.1",

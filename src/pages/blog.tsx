@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { graphql, PageProps } from 'gatsby';
-import { Layout } from '../components/layout';
-import { Pagination } from '../components/atom';
+import { Layout } from '@layout';
+// import { Pagination } from '../components/atom';
 import { Link } from "gatsby";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import _ from 'lodash';
-import * as styles from '../styles/page/blog.module.css';
+import * as styles from '@styles/page/blog.module.css';
 
 
 type blogItem = {

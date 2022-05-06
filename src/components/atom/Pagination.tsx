@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
-import * as styles from '../../styles/components/atom/pagination.module.css'
+import * as styles from '@styles/components/atom/pagination.module.css'
 
 type Props = {
   total : number;
