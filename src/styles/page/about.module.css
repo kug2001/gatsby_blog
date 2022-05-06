@@ -1,0 +1,15 @@
+.aboutMarkdown{
+  min-width: 1280px;
+  margin: 112px auto;
+}
+.aboutMarkdown h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.aboutMarkdown p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}

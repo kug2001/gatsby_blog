@@ -38,13 +38,19 @@ const IndexPage = ({ data } : graphqlData) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node;
   const mainElm = useRef(null);
   const stackFindIn = useScrollFadeIn({
-    threshold: [0.2, 0.5],
-    duration: 0.5,
+    threshold: [0.1, 0.7],
+    duration: 0.7,
     delay: 0,
-  })
+  });
   const visionFindIn = useScrollFadeIn({
-    threshold: [0.2, 0.5],
-    duration: 0.5,
+    threshold: [0.1, 0.7],
+    duration: 0.7,
+    delay: 0,
+    direction: 'up',
+  });
+  const valueFindIn = useScrollFadeIn({
+    threshold: [0.1, 0.7],
+    duration: 0.7,
     delay: 0,
     direction: 'up',
   })
@@ -83,7 +89,12 @@ const IndexPage = ({ data } : graphqlData) => {
             </span>
           </h1>
           <div className={styles.areaVision} {...visionFindIn}>
-            <h1>나의 꿈은 연결이란 키워드를 통해 세상을 이롭게 하는 것입니다!</h1>
+            <strong>나의 꿈은 <em>Bridge Builder</em>이란 키워드를 통해 </strong>
+            <strong>세상을 <em>가치</em>있고 <em>아름답게</em>하는 것입니다!</strong>
+          </div>
+          <div className={styles.areaValue} {...valueFindIn}>
+            <strong>제 <em>가치 키워드</em>는 </strong>
+            <strong><em>새롭게</em>, <em>이롭게</em>, <em>아름답게</em>, 입니다.</strong>
           </div>
           <div className={styles.areaStack} {...stackFindIn}>
             <div className={styles.areaStackCard}>
@@ -113,9 +124,6 @@ const IndexPage = ({ data } : graphqlData) => {
               </div>
             </div>
             <span className={styles.txtInfo}>위의 스택을 사용하고 공부하고 있습니다.</span>
-          </div>
-          <div >
-            
           </div>
           <div dangerouslySetInnerHTML={{__html:html}}></div>
         </article>

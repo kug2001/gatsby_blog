@@ -13,13 +13,28 @@ const Header: React.FC<Props> = ( props ) => {
       <nav className={styles.navBar}>
         <ul className={styles.list}>
           <li>
-            <Link to="/">Home</Link>
+            <Link 
+              to="/"
+              activeClassName={styles.linkActive}
+            >
+              <span className={styles.txtLink}>Home</span>
+            </Link>
           </li>
           <li>
-            <Link to="/blog">Blog</Link>
+            <Link 
+              to="/blog"
+              activeClassName={styles.linkActive}
+            >
+              <span className={styles.txtLink}>Blog</span>
+            </Link>
           </li>
           <li>
-            <Link to="/about">About Me</Link>
+            <Link 
+              to="/about"
+              activeClassName={styles.linkActive}
+            >
+              <span className={styles.txtLink}>About Me</span>
+            </Link>
           </li>
         </ul>
         {/* <div>

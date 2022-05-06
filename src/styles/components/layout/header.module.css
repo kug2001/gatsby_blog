@@ -19,10 +19,17 @@ h1 {
   display: flex;
 }
 .list li {
-  margin-right: 24px;
+  margin: 0 20px;
 }
 a {
   color: #1a1a1a;
   font-weight: 700;
   text-decoration: none;
+}
+.txtLink{
+  display: inline-block;
+}
+.linkActive{
+  padding-bottom: 5px;
+  border-bottom: 3px solid #1E222B;
 }

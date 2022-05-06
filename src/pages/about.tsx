@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Layout } from '../components/layout';
+import * as styles from '../styles/page/about.module.css'
 
 type Props = { data: any }
 
@@ -11,8 +12,8 @@ function AboutPage({ data }: Props) {
   
   return (
     <Layout>
-      <h1>{frontmatter.title}</h1>
-      <article className='contentAbout' dangerouslySetInnerHTML={{__html: html}}>
+      <h1 className='screen_out'>{frontmatter.title}</h1>
+      <article className={styles.aboutMarkdown} dangerouslySetInnerHTML={{__html: html}}>
       </article>
     </Layout>
   )

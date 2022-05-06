@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 500px;
   margin: 0 auto;
   background: #1E222B;
 }
@@ -43,9 +43,49 @@
 .contentHead em{
   color: #715741;
 }
+.areaContent,
+.areaVision,
+.areaValue,
+.areaStack {
+  margin: 50px 0;
+}
 .areaVision{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 500px;
-  background: #715741;
+  background: #1E222B;
+}
+.areaVision strong{
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 100px;
+}
+.areaVision strong em{
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 40px;
+}
+.areaValue{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  background: #fff;
+}
+.areaValue strong{
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  line-height: 100px;
+}
+.areaValue strong em{
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 40px;
 }
 .areaStack {
   display: flex;
@@ -69,7 +109,7 @@
   margin: 10px 10px;
   width: 120px;
   height: 150px;
-  border: 3px solid #fff;
+  border: 4px solid #fff;
   border-radius: 30px;
   /* background: #fff; */
 }

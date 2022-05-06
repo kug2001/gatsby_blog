@@ -14,7 +14,7 @@ export const useScrollFadeIn = ({
   direction = 'up'
 }:Props) => {
 
-  const dom = useRef(null);
+  const dom = useRef<null>();
 
   const handleDirection = (name:string) => {
     switch (name) {
@@ -22,21 +22,17 @@ export const useScrollFadeIn = ({
         return 'translate3d(0, 20%, 0)';
       case 'down':
         return 'translate3d(0, -20%, 0)';
-      case 'left':
-        return 'translate3d(50%, 0, 0)';
-      case 'right':
-        return 'translate3d(-50%, 0, 0)';
       default:
         return;
     };
   };
 
   const handleScroll = useCallback(([entry]) => {
-    const { current }:any = dom;
+    const { current }: {current:any} = dom;
     if(Array.isArray(threshold)) {
       if(entry.intersectionRatio < threshold[0]){
         current.style.opacity = 0;
-        current.style.transform = handleDirection(direction);
+        current.style.transform = 'translate3d(0, -20%, 0)';
       }
       else if(entry.intersectionRatio > threshold[1]){
         current.style.transitionProperty = 'all';
