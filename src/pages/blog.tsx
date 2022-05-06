@@ -53,37 +53,43 @@ const BlogPage = ({ data } : PageProps<Props> ) => {
   return (
     <Layout>
       <article className={styles.contentDoc}>
-        <strong>블로그 리스트 </strong>
-        <button onClick={()=>filterBlogList('all')}>all</button>
-        {
-          stackList.map((item:string) => {
-            return <button onClick={()=>filterBlogList(item)} key={item}>{item}</button>
-          })
-        }
-        <button onClick={()=>filterBlogList('javascript')}>javascript</button>
-        <ul className={styles.postList}>
-          {
-            blogList.map((item) => {
-              return(
-                <Link to={item.frontmatter.slug} key={item.frontmatter.slug}>
-                  <li>
-                    <div className={styles.areaImg}>
-                      {item.frontmatter.hero_image && <GatsbyImage image={item.frontmatter.hero_image.childImageSharp.gatsbyImageData} alt=""/>}
-                    </div>
-                    <div className={styles.postTit}>
-                      타이틀 : {item.frontmatter.title}
-                    </div>
-                    <div>
-                      날짜 : {item.frontmatter.date}
-                    </div>
-                  </li>
-                </Link>
-              )
-            })
-          }
-        </ul>
-        <div>현재페이지 : {currentPage}</div>
-        <Pagination total={140} currentPage={currentPage} perPage={10} target={onTarget}/>
+        <div className={styles.wrapContent}>
+          <div className={styles.boxFilter}>
+            <strong className='screen_out'>블로그 스택 리스트 </strong>
+            <a className={styles.btnFilter} onClick={()=>filterBlogList('all')}>All</a>
+            {
+              stackList.map((item:string) => {
+                return (
+                  <a className={styles.btnFilter} onClick={()=>filterBlogList(item)} key={item}>
+                    {_.upperFirst(item)}
+                  </a>
+                )
+              })
+            }
+          </div>
+          <ul className={styles.postList}>
+            {
+              blogList.map((item) => {
+                return(
+                  <Link to={item.frontmatter.slug} key={item.frontmatter.slug}>
+                    <li>
+                      <div className={styles.areaImg}>
+                        {item.frontmatter.hero_image && <GatsbyImage image={item.frontmatter.hero_image.childImageSharp.gatsbyImageData} alt=""/>}
+                      </div>
+                      <span className={styles.postTit}>
+                        {item.frontmatter.title}
+                      </span>
+                      <span className={styles.postDate}>
+                        {item.frontmatter.date}
+                      </span>
+                    </li>
+                  </Link>
+                )
+              })
+            }
+          </ul>
+          {/* <Pagination total={140} currentPage={currentPage} perPage={10} target={onTarget}/> */}
+        </div>
       </article>
     </Layout>
   )
