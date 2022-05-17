@@ -2,6 +2,8 @@ import React from 'react'
 import { Layout } from '@components/layout';
 import { graphql, PageProps } from "gatsby";
 import { getImage, GatsbyImage, ImageDataLike } from 'gatsby-plugin-image';
+import * as styles from '@styles/page/contentPage.module.css';
+import 'gatsby-remark-vscode/styles.css';
 
 type Props = {
   markdownRemark: {
@@ -22,13 +24,21 @@ const Template = ({data} : PageProps<Props> ) => {
 
   return (
     <Layout>
-      <h1>{frontmatter.title}</h1>
-      <div>
-        {heroImage && <GatsbyImage image={heroImage} alt="title"/>}
-      </div>
-      <div
-        dangerouslySetInnerHTML={{ __html: html }}
-      ></div>
+      <main className={styles.docMain}>
+        <div className={styles.contentHead}>
+          {heroImage && 
+            <GatsbyImage
+              className={styles.headImage}
+              image={heroImage}
+              alt="title"
+            />}
+          <div className={styles.boxHead}>
+            <h1 className={styles.headTit}>{frontmatter.title}</h1>
+            <strong className={styles.headData}>{frontmatter.date}</strong>
+          </div>
+        </div>
+        <div className={styles.areaMarkdown} dangerouslySetInnerHTML={{ __html: html }} />
+      </main>
     </Layout>
   )
 }
@@ -46,6 +56,10 @@ export const pageQuery = graphql`
           childImageSharp {
             gatsbyImageData(
               layout: FULL_WIDTH
+              aspectRatio: 1.9
+              transformOptions: {
+                cropFocus: CENTER
+              }
             )
           }
         }

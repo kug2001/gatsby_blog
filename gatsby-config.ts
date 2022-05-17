@@ -10,6 +10,10 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
+        postCssPlugins: [
+          require('postcss-nested'),
+          require(`postcss-preset-env`)({ stage: 0 })
+        ],
         cssLoaderOptions: {
           exportLocalsConvention: false,
           namedExport: false,
@@ -39,6 +43,22 @@ const config: GatsbyConfig = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: {
+                default: 'Solarized Light',
+                dark: 'Monokai Dimmed'
+              },
+              inlineCode: {
+                marker: '•',
+                theme: {
+                  default: 'Default Light+',
+                  dark: 'Default Dark+'
+                }
+              }
             },
           },
         ],
