@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Layout } from '@layout';
 import * as styles from '@styles/page/home.module.css';
 import TypeIt from "typeit-react";
-import { useScrollFadeIn } from '@common/customHooks/useScrollFadeIn'
+import { useScrollFadeIn } from '@common/customHooks/useScrollFadeIn';
 import {
   FaReact,
 } from 'react-icons/fa';

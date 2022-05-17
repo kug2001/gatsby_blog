@@ -44,7 +44,9 @@ export const pageQuery = graphql`
         title
         hero_image {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(
+              layout: FULL_WIDTH
+            )
           }
         }
       }

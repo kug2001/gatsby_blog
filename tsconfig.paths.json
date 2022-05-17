@@ -2,12 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".", // this must be specified if "paths" is specified.
     "paths": {
-      "@pages": ["src/pages"],
-      "@layout": ["src/components/layout"],
-      "@components": ["src/components"],
-      "@common": ["src/common"],
-      "@images": ["src/images"],
-      "@store": ["src/store"],
+      "@pages/*": ["src/pages/*"],
+      "@layout/*": ["src/components/layout/*"],
+      "@components/*": ["src/components/*"],
+      "@common/*": ["src/common/*"],
+      "@images/*": ["src/images/*"],
+      "@store/*": ["src/store/*"],
     }
   }
 }
