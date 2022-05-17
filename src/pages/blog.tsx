@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { graphql, PageProps } from 'gatsby';
-import { Layout } from '@layout';
+import { Layout } from '@components/layout';
 // import { Pagination } from '../components/atom';
 import { Link } from "gatsby";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";

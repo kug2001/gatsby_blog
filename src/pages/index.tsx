@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { graphql } from 'gatsby';
-import { Layout } from '@layout';
+import { Layout } from '@components/layout';
 import * as styles from '@styles/page/home.module.css';
 import TypeIt from "typeit-react";
-import { useScrollFadeIn } from '@common/customHooks/useScrollFadeIn';
+import useScrollFadeIn from '@common/customHooks/useScrollFadeIn';
 import {
   FaReact,
 } from 'react-icons/fa';
@@ -37,24 +37,15 @@ type graphqlData = {
 const IndexPage = ({ data } : graphqlData) => {
   const { frontmatter, html } = data.allMarkdownRemark.edges[0].node;
   const mainElm = useRef(null);
-  const stackFindIn = useScrollFadeIn({
-    threshold: [0.1, 0.7],
-    duration: 0.7,
-    delay: 0,
-  });
-  const visionFindIn = useScrollFadeIn({
-    threshold: [0.1, 0.7],
-    duration: 0.7,
-    delay: 0,
-    direction: 'up',
-  });
-  const valueFindIn = useScrollFadeIn({
-    threshold: [0.1, 0.7],
-    duration: 0.7,
-    delay: 0,
-    direction: 'up',
-  })
-
+  // const stackFindIn = useScrollFadeIn();
+  const refHead = useRef(null);
+  const refVision = useRef(null);
+  const refValue = useRef(null);
+  const refStack = useRef(null);
+  useScrollFadeIn(refHead, {});
+  useScrollFadeIn(refVision, {});
+  useScrollFadeIn(refValue, {});
+  useScrollFadeIn(refStack, {});
 
 
   console.log(data);
@@ -83,20 +74,20 @@ const IndexPage = ({ data } : graphqlData) => {
           </p>
         </div>
         <article className={styles.areaContent}>
-          <h1 className={styles.contentHead}>
+          <h1 className={styles.contentHead} ref={refHead}>
             <span>
               저는 사람과 사람을 연결하는 <br/> <em>Bridge Builder</em> 제이든입니다!
             </span>
           </h1>
-          <div className={styles.areaVision} {...visionFindIn}>
+          <div className={styles.areaVision} ref={refVision}>
             <strong>나의 꿈은 <em>Bridge Builder</em>이란 키워드를 통해 </strong>
             <strong>세상을 <em>가치</em>있고 <em>아름답게</em>하는 것입니다!</strong>
           </div>
-          <div className={styles.areaValue} {...valueFindIn}>
+          <div className={styles.areaValue} ref={refValue}>
             <strong>제 <em>가치 키워드</em>는 </strong>
             <strong><em>새롭게</em>, <em>이롭게</em>, <em>아름답게</em>, 입니다.</strong>
           </div>
-          <div className={styles.areaStack} {...stackFindIn}>
+          <div className={styles.areaStack} ref={refStack}>
             <div className={styles.areaStackCard}>
               <div className={styles.boxStackCard}>
                 <SiJavascript />

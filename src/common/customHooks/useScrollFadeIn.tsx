@@ -1,21 +1,21 @@
-import { useRef, useCallback, useEffect } from 'react'
+import { MutableRefObject, RefObject, useCallback, useEffect } from 'react'
 
-type Props = {
-  threshold: number[] | number;
+type Options = {
+  threshold?: number[] | number;
   duration?: number | undefined;
   delay?: number | undefined;
   direction?: string;
 }
 
-export const useScrollFadeIn = ({
-  threshold,
-  duration = 1,
-  delay = 0,
-  direction = 'up'
-}:Props) => {
-
-  const dom = useRef<null>();
-
+export default function useScrollFadeIn(
+  elmRef:RefObject<HTMLElement | undefined>,
+  {
+    threshold = [0.1, 0.7],
+    duration = 0.7,
+    delay = 0,
+    direction = 'up',
+  }:Options): void
+  {
   const handleDirection = (name:string) => {
     switch (name) {
       case 'up':
@@ -28,51 +28,42 @@ export const useScrollFadeIn = ({
   };
 
   const handleScroll = useCallback(([entry]) => {
-    const { current }: {current:any} = dom;
-    if(Array.isArray(threshold)) {
+    const node = elmRef?.current;
+    if(node && Array.isArray(threshold)) {
       if(entry.intersectionRatio < threshold[0]){
-        current.style.opacity = 0;
-        current.style.transform = 'translate3d(0, -20%, 0)';
+        node.style.opacity = '0';
+        node.style.transform = 'translate3d(0, -20%, 0)';
       }
       else if(entry.intersectionRatio > threshold[1]){
-        current.style.transitionProperty = 'all';
-        current.style.transitionDuration = `${duration}s`;
-        current.style.transitionTimingFunction = 'cubic-bezier(0, 0, 0.2, 1)';
-        current.style.transitionDelay = `${delay}s`;
-        current.style.opacity = 1;
-        current.style.transform = 'translate3d(0, 0, 0)';
+        node.style.transitionProperty = 'all';
+        node.style.transitionDuration = `${duration}s`;
+        node.style.transitionTimingFunction = 'cubic-bezier(0, 0, 0.2, 1)';
+        node.style.transitionDelay = `${delay}s`;
+        node.style.opacity = '1';
+        node.style.transform = 'translate3d(0, 0, 0)';
       }
     }
     else {
-      if(entry.isIntersecting && current) {
-        current.style.transitionProperty = 'all';
-        current.style.transitionDuration = `${duration}s`;
-        current.style.transitionTimingFunction = 'cubic-bezier(0, 0, 0.2, 1)';
-        current.style.transitionDelay = `${delay}s`;
-        current.style.opacity = 1;
-        current.style.transform = 'translate3d(0, 0, 0)';
+      if(entry.isIntersecting && node) {
+        node.style.transitionProperty = 'all';
+        node.style.transitionDuration = `${duration}s`;
+        node.style.transitionTimingFunction = 'cubic-bezier(0, 0, 0.2, 1)';
+        node.style.transitionDelay = `${delay}s`;
+        node.style.opacity = '1';
+        node.style.transform = 'translate3d(0, 0, 0)';
       }
     }
   }, []);
 
   useEffect(()=> {
     let observer:IntersectionObserver;
-    const { current } = dom;
-    if(current) {
+    const node = elmRef?.current;
+    if(node) {
       observer = new IntersectionObserver(handleScroll, {
         threshold,
       })
-      observer.observe(current);
+      observer.observe(node);
       return () => observer && observer.disconnect();
     };
   }, [handleScroll])
-
-
-  return {
-    ref: dom,
-    style: {
-      opacity: 0,
-      transform: handleDirection(direction),
-    }
-  }
 }
