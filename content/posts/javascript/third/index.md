@@ -93,3 +93,6 @@ const abc = 123;
 
 [[warning | 경고의 타이틀 입니다.]]
 | content
+
+
+<md-counter init=100></md-counter>

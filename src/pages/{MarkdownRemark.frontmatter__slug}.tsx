@@ -2,11 +2,10 @@ import React from 'react'
 import { Layout } from '@components/layout';
 import { graphql, PageProps } from "gatsby";
 import { getImage, GatsbyImage, ImageDataLike } from 'gatsby-plugin-image';
-import { useIntersectionObserver, useIsomorphicLayoutEffect } from '@common/customHooks/'
+import renderAst from '@common/util/customComponent';
 import * as styles from '@styles/page/contentPage.module.css';
 import 'gatsby-remark-vscode/styles.css';
 import '@styles/components/atom/markdownUtils.css';
-// import { forEach } from 'lodash';
 
 type Props = {
   markdownRemark: {
@@ -16,17 +15,17 @@ type Props = {
       hero_image: ImageDataLike,
     }
     html: string,
-    tableOfContents: any
+    tableOfContents: string
+    htmlAst: object
   }
   
 }
 
 const Template = ({data} : PageProps<Props> ) => {
   const { markdownRemark } = data;
-  const { frontmatter, html, tableOfContents } = markdownRemark;
+  const { frontmatter, tableOfContents, htmlAst } = markdownRemark;
   const heroImage = getImage(frontmatter.hero_image);
 
-  console.log(tableOfContents);
 
   // const handleIntersectionObserver = (node: Element) => {
   //   const option:IntersectionObserverInit = {
@@ -69,7 +68,8 @@ const Template = ({data} : PageProps<Props> ) => {
             <strong className={styles.headData}>{frontmatter.date}</strong>
           </div>
         </div>
-        <div className={styles.areaMarkdown} dangerouslySetInnerHTML={{ __html: html }} />
+        {/* <div className={styles.areaMarkdown} dangerouslySetInnerHTML={{ __html: html }} /> */}
+        <div className={styles.areaMarkdown}>{renderAst(htmlAst)}</div>
         <div className={styles.tableOfContent} dangerouslySetInnerHTML={{ __html: tableOfContents }}/>
       </main>
     </Layout>
@@ -80,6 +80,7 @@ const Template = ({data} : PageProps<Props> ) => {
 export const pageQuery = graphql`
   query MdBlogPost($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      htmlAst
       html
       tableOfContents
       frontmatter {
