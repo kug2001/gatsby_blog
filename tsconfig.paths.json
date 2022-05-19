@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".", // this must be specified if "paths" is specified.
+    "baseUrl": "./", // this must be specified if "paths" is specified.
     "paths": {
       "@pages/*": ["src/pages/*"],
       "@components/*": ["src/components/*"],

@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import { GatsbyBrowser } from "gatsby";
 import { RecoilRoot } from "recoil";

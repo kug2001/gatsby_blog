@@ -1,4 +1,5 @@
 .docMain {
+  margin: 72px 0 0;
   background: #1e222b;
 }
 .contentHead {
@@ -7,15 +8,16 @@
 }
 .headImage {
   grid-area: 1 / 1;
-  opacity: 0.8;
+  z-index: 100;
 }
 .boxHead {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   grid-area: 1 / 1;
-  position: relative;
+  z-index: 200;
 }
 .headTit {
   margin-bottom: 40px;
@@ -47,7 +49,9 @@ h6 {
   margin-bottom: 20px;
   font-weight: 700;
   color: #fff;
+  /* vertical-align: middle; */
 }
+
 .areaMarkdown {
   h1 {
     font-size: 3rem;

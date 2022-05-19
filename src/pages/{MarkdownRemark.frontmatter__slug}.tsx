@@ -2,8 +2,11 @@ import React from 'react'
 import { Layout } from '@components/layout';
 import { graphql, PageProps } from "gatsby";
 import { getImage, GatsbyImage, ImageDataLike } from 'gatsby-plugin-image';
+import { useIntersectionObserver, useIsomorphicLayoutEffect } from '@common/customHooks/'
 import * as styles from '@styles/page/contentPage.module.css';
 import 'gatsby-remark-vscode/styles.css';
+import '@styles/components/atom/markdownUtils.css';
+// import { forEach } from 'lodash';
 
 type Props = {
   markdownRemark: {
@@ -13,14 +16,43 @@ type Props = {
       hero_image: ImageDataLike,
     }
     html: string,
+    tableOfContents: any
   }
   
 }
 
 const Template = ({data} : PageProps<Props> ) => {
   const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const { frontmatter, html, tableOfContents } = markdownRemark;
   const heroImage = getImage(frontmatter.hero_image);
+
+  console.log(tableOfContents);
+
+  // const handleIntersectionObserver = (node: Element) => {
+  //   const option:IntersectionObserverInit = {
+  //     root: null,
+  //     threshold: [ 0, 1]
+  //   }
+  //   const observer = new IntersectionObserver(([entry]:IntersectionObserverEntry[]) => {
+  //     entry.intersectionRatio >0.75 && console.log(entry.target, entry)
+      
+  //   }, option);
+
+  //   observer.observe(node);
+
+  //   return () => observer.disconnect();
+  // }
+  
+
+  // useIsomorphicLayoutEffect(() => {
+  //   if(typeof window !== 'undefined') {
+  //     const nodes = document.querySelectorAll('.heading-anchor');
+  //     nodes.forEach((element) => {
+  //       handleIntersectionObserver(element);
+  //     })
+  //   }
+  // }, []);
+  
 
   return (
     <Layout>
@@ -38,6 +70,7 @@ const Template = ({data} : PageProps<Props> ) => {
           </div>
         </div>
         <div className={styles.areaMarkdown} dangerouslySetInnerHTML={{ __html: html }} />
+        <div className={styles.tableOfContent} dangerouslySetInnerHTML={{ __html: tableOfContents }}/>
       </main>
     </Layout>
   )
@@ -48,6 +81,7 @@ export const pageQuery = graphql`
   query MdBlogPost($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
+      tableOfContents
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         slug

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { Layout } from '@components/layout';
 // import { Pagination } from '../components/atom';
 import { Link } from "gatsby";
+import { navigate } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { useEffectOnce } from '@common/customHooks/';
 import _ from 'lodash';
 import * as styles from '@styles/page/blog.module.css';
 
@@ -29,24 +31,31 @@ type Props = {
 }
 
 
-const BlogPage = ({ data } : PageProps<Props> ) => {
+const BlogPage = ({ location, data } : PageProps<Props> ) => {
 
-  const [ currentPage, setCurrentPage ] = useState<number>(1);
+  // const [ currentPage, setCurrentPage ] = useState<number>(1);
   const [ blogList, setBlogList ] = useState(data.allMarkdownRemark.nodes);
-  const stackList = ['javascript', 'react', 'vue', 'getsby', 'vuepress', ];
+  const stackList = ['javascript', 'react', 'vue', 'getsby', 'vuepress' ];
 
-  const onTarget = (item:number) => {
-    setCurrentPage(item);
-  }
+  useEffectOnce(() => {
+    const { search } = location;
+    if( search === '') return;
+    const filter = search.replace('?', '').split('=');
+    if(filter[0] === 'filter'){
+      filterBlogList(filter[1]);
+    }
+  });
 
   const filterBlogList = (stack:string) => {
     const copyData = data.allMarkdownRemark.nodes;
     if(stack === 'all'){
       setBlogList([...data.allMarkdownRemark.nodes]);
+      navigate(`?filter=${stack}`);
     }
     else{
       const filterData = _.filter(copyData,(o):boolean => o.frontmatter.stack.includes(stack));
       setBlogList(filterData);
+      navigate(`?filter=${stack}`);
     }
   }
 

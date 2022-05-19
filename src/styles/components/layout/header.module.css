@@ -1,12 +1,15 @@
 .docHeader {
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: 72px;
   padding: 0 250px;
   /* border-bottom: 1px solid #e; */
   box-sizing: border-box;
   background: #fff;
+  z-index: 1000;
 }
 h1 {
   font-size: 20px;
@@ -26,10 +29,10 @@ a {
   font-weight: 700;
   text-decoration: none;
 }
-.txtLink{
+.txtLink {
   display: inline-block;
 }
-.linkActive{
+.linkActive {
   padding-bottom: 5px;
-  border-bottom: 3px solid #1E222B;
+  border-bottom: 3px solid #1e222b;
 }

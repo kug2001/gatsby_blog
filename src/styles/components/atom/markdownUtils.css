@@ -1,0 +1,63 @@
+.heading-anchor.after {
+  display: inline-block;
+  margin-left: 10px;
+  & svg {
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    vertical-align: middle;
+  }
+}
+
+/* 목차 스타일링 */
+
+.table-of-contents {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 250px;
+  z-index: 1;
+}
+
+.table-of-contents ul {
+  list-style: none;
+}
+
+.table-of-contents ul li ul {
+  list-style: none;
+}
+
+.table-of-contents ul li a {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* 커스텀 블록 */
+.custom-block {
+  margin-bottom: 40px;
+  padding: 40px 30px;
+  border-radius: 10px;
+  /* border: 1px solid #fff; */
+  .custom-block-heading {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 5px solid #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .custom-block-body {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  &.info {
+    background: #88a2bc;
+  }
+  &.danger {
+    background: #f0446a;
+  }
+  &.warning {
+    background: #f0ce6a;
+  }
+}

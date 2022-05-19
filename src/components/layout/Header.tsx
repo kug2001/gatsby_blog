@@ -22,15 +22,16 @@ const Header: React.FC<Props> = ( props ) => {
           </li>
           <li>
             <Link 
-              to="/blog"
+              to="/blog/"
               activeClassName={styles.linkActive}
+              partiallyActive={true}
             >
               <span className={styles.txtLink}>Blog</span>
             </Link>
           </li>
           <li>
             <Link 
-              to="/about"
+              to="/about/"
               activeClassName={styles.linkActive}
             >
               <span className={styles.txtLink}>About Me</span>

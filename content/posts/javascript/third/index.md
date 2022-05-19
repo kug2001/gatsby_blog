@@ -8,7 +8,9 @@ stack: ["vue"]
 content: ""
 ---
 
+
 # 헤딩 텍스트 스타일링
+
 
 ---
 
@@ -45,6 +47,8 @@ content: ""
    4. sdfs
 5. dfsdf
 
+## 코드 블럭 스타일
+
 
 ```js {1,3-5}
 const abc = 123;
@@ -76,3 +80,16 @@ const abc = 123;
 const abc = 123;
 ```
 
+
+
+[[info | 정보의 타이틀 입니다.]]
+| content
+
+[[info]]
+| content
+
+[[danger | 위험의 타이틀 입니다.]]
+| content
+
+[[warning | 경고의 타이틀 입니다.]]
+| content

@@ -8,13 +8,13 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({getC
     output,
     resolve: {
       alias: {
-        "@pages": path.resolve(__dirname, 'src/pages'),
-        "@layout": path.resolve(__dirname, 'src/components/layout'),
+        "@pages": path.resolve(__dirname, '/src/pages'),
+        "@layout": path.resolve(__dirname, '/src/components/layout'),
         "@components": path.resolve(__dirname, 'src/components'),
-        "@common": path.resolve(__dirname, 'src/common'),
-        "@images": path.resolve(__dirname, 'src/images'),
-        "@store": path.resolve(__dirname, 'src/store'),
-        "@styles": path.resolve(__dirname, 'src/styles'),
+        "@common": path.resolve(__dirname, '/src/common'),
+        "@images": path.resolve(__dirname, '/src/images'),
+        "@store": path.resolve(__dirname, '/src/store'),
+        "@styles": path.resolve(__dirname, '/src/styles'),
       },
     },
   });
