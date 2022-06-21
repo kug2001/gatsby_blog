@@ -19,10 +19,10 @@
   /* border: 1px solid #e5e5e5; */
   border-radius: 30px;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
   cursor: pointer;
-  color: #999;
+  color: #fff;
   background: #2f240d;
 }
 .btnFilter + .btnFilter {
@@ -48,9 +48,11 @@
 }
 .postDate {
   display: block;
+  margin: 10px 0;
   font-size: 0.8rem;
   color: #fff;
 }
 .areaImg {
-  height: 200px;
+  height: 100%;
+  margin-bottom: 20px;
 }

@@ -1,18 +1,14 @@
 ---
-slug: "/blog/my-first-post3"
-date: "2019-05-20"
-title: "My first blog post3"
-hero_image: "./testImg2.jpg"
+date: "2022-05-26"
+title: "My first blog post"
+slug: "/blog/javascript/page1"
+hero_image: "./testImg.jpg"
 page : "blog"
-stack: ["vue"]
+stack: ["javascript", "react", "vue"]
 content: ""
 ---
 
-
-# 헤딩 텍스트 스타일링
-
-
----
+# 테스트용 페이지 입니다.
 
 # h1 헤딩 텍스트
 ## h2 헤딩 텍스트
@@ -50,7 +46,7 @@ content: ""
 ## 코드 블럭 스타일
 
 
-```js {1,3-5}
+```js {1,2-5}
 const abc = 123;
 const abc = 123;
 const abc = 123;
@@ -94,5 +90,13 @@ const abc = 123;
 [[warning | 경고의 타이틀 입니다.]]
 | content
 
+[[warning | 경고의 타이틀 입니다.]]
+| gkgkgkgk
+
+
+> 인용문<br/>
+하하하호호호호하하하호호호호하하하호호호호하하하호호호호하하하호호호호하하하호호호호하하하호호호호하하하호호호호하하하호호호호하하하호호호호하하하호호호호하하하호호호호하하하호호호호
+
+안녕하세요 저는 `하하하하하` 입니다. 호호호호하하하하
 
 <md-counter init=100></md-counter>

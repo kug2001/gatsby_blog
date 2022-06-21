@@ -42,6 +42,7 @@
     "gatsby-transformer-sharp": "^4.10.0",
     "gatsby-transformer-typescript-css-modules": "^1.0.14",
     "gh-pages": "^3.2.3",
+    "html-react-parser": "^1.4.12",
     "lodash": "^4.17.21",
     "postcss": "^8.4.12",
     "react": "^17.0.1",

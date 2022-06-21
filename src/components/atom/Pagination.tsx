@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import classnames from 'classnames';
-import * as styles from '@styles/components/atom/pagination.module.css'
+import * as styles from '@styles/components/atom/pagination.module.css';
 
-type Props = {
+interface PaginationProps {
   total : number;
   currentPage : number;
   perPage : number;
   target(page:number|null):void;
 }
 
-const Pagination:React.FC<Props> = (props) => {
+const Pagination:React.FC<PaginationProps> = (props) => {
 
   const { total, currentPage, perPage, target } = props;
 
@@ -36,8 +35,8 @@ const Pagination:React.FC<Props> = (props) => {
 
 
   const renderNumber = ():void => {
-    const pageLangth = endPage() - startPage() + 1;
-    const arr:(number|null)[] = Array(pageLangth).fill(0);
+    const pageLength = endPage() - startPage() + 1;
+    const arr:(number|null)[] = Array(pageLength).fill(0);
     const data = arr.map((item,index) => startPage()+index);
     setPageNumber([...data]);
   }

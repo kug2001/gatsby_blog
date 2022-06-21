@@ -1,5 +1,4 @@
 .docMain {
-  margin: 72px 0 0;
   background: #1e222b;
 }
 .contentHead {
@@ -54,21 +53,27 @@ h6 {
 
 .areaMarkdown {
   h1 {
+    margin-bottom: 20px;
     font-size: 3rem;
   }
   h2 {
+    margin-bottom: 20px;
     font-size: 2.8rem;
   }
   h3 {
+    margin-bottom: 20px;
     font-size: 2.4rem;
   }
   h4 {
+    margin-bottom: 20px;
     font-size: 2rem;
   }
   h5 {
+    margin-bottom: 20px;
     font-size: 1.8rem;
   }
   h6 {
+    margin-bottom: 20px;
     font-size: 1.4rem;
   }
 }
@@ -77,6 +82,7 @@ h6 {
 .areaMarkdown {
   ul {
     margin-left: 20px;
+    margin-bottom: 20px;
     list-style: disc;
     li {
       margin: 5px 0;
@@ -95,6 +101,7 @@ h6 {
 .areaMarkdown {
   ol {
     margin-left: 20px;
+    margin-bottom: 20px;
     list-style: decimal;
     li {
       margin: 5px 0;
@@ -114,7 +121,7 @@ h6 {
 /* 코드블럭 */
 .areaMarkdown {
   pre {
-    margin: 40px 0px;
+    margin-bottom: 20px;
     padding: 20px 20px;
     border-radius: 10px;
     &:before {
@@ -127,11 +134,65 @@ h6 {
 
 /* 기타 : 일반 택스트 */
 .areaMarkdown p {
-  /* font-size: 1.1rem; */
+  margin-top: 5px;
+  line-height: 1.5rem;
+  & code {
+    padding: 1px 5px;
+    color: #f1184c;
+    background: #e5e5e5;
+  }
 }
 
 /* 기타 : 수평선 */
 .areaMarkdown hr {
   margin: 20px 0 40px;
   border: 4px solid #fff;
+}
+
+/* 기타 : 인용문 */
+.areaMarkdown blockquote {
+  margin-bottom: 20px;
+  padding: 40px 24px 40px 14px;
+  font-weight: 700;
+  color: #999;
+  border-radius: 10px;
+  background: #dfdcb9;
+  & p {
+    /* display: inline-block; */
+    padding-left: 10px;
+    border-left: 5px solid #503c52;
+    line-height: 1.5rem;
+  }
+}
+
+/* toc */
+.tableOfContents {
+  /* display: none; */
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 250px;
+  z-index: 1;
+  transition: opacity 0.5s ease-out;
+  opacity: 0;
+  &.active {
+    /* display: block; */
+    opacity: 1;
+  }
+}
+
+.tableOfContents ul {
+  list-style: none;
+}
+
+.tableOfContents ul li ul {
+  margin-left: 10px;
+  list-style: none;
+}
+
+.tableOfContents ul li a {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  color: #fff;
 }

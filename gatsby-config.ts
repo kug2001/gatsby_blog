@@ -37,6 +37,7 @@ const config: GatsbyConfig = {
       options: {
         tableOfContents: {
           heading: null,
+          pathToSlugField: '13',
           maxDepth: 4,
         },
         plugins: [

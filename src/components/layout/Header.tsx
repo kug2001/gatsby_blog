@@ -38,10 +38,6 @@ const Header: React.FC<Props> = ( props ) => {
             </Link>
           </li>
         </ul>
-        {/* <div>
-          <span>클릭</span>
-          <span>클릭</span>
-        </div> */}
       </nav>
     </header>
   )

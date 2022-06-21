@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { Layout } from '@components/layout';
-// import { Pagination } from '../components/atom';
+import { TagName } from '@components/atom';
 import { Link } from "gatsby";
 import { navigate } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
@@ -45,7 +45,8 @@ const BlogPage = ({ location, data } : PageProps<Props> ) => {
       filterBlogList(filter[1]);
     }
   });
-
+  
+  // TODO: 필터리스트에 대해 에러핸들링이 필요.
   const filterBlogList = (stack:string) => {
     const copyData = data.allMarkdownRemark.nodes;
     if(stack === 'all'){
@@ -85,12 +86,15 @@ const BlogPage = ({ location, data } : PageProps<Props> ) => {
                       <div className={styles.areaImg}>
                         {item.frontmatter.hero_image && <GatsbyImage image={item.frontmatter.hero_image.childImageSharp.gatsbyImageData} alt=""/>}
                       </div>
-                      <span className={styles.postTit}>
+                      <div className={styles.postTit}>
                         {item.frontmatter.title}
-                      </span>
-                      <span className={styles.postDate}>
+                      </div>
+                      <div className={styles.postDate}>
                         {item.frontmatter.date}
-                      </span>
+                      </div>
+                      <TagName
+                        tag={item.frontmatter.stack}
+                      />
                     </li>
                   </Link>
                 )

@@ -1,6 +1,6 @@
 .docHeader {
   display: flex;
-  position: fixed;
+  /* position: fixed; */
   justify-content: space-between;
   align-items: center;
   width: 100%;

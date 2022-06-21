@@ -1,0 +1,42 @@
+.js,
+.react,
+.vue,
+.gatsby,
+.vuepress {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 12px;
+}
+
+span + span {
+  margin-left: 5px;
+}
+
+.js {
+  background: #f4db18;
+  & p {
+    color: #1a1a1a;
+  }
+}
+.react {
+  background: #54d1fa;
+  & p {
+    color: #1a1a1a;
+  }
+}
+.vue {
+  background: #35a76c;
+  & p {
+    color: #1a1a1a;
+  }
+}
+.gatsby {
+  & p {
+    color: #54d1fa;
+  }
+}
+.vuepress {
+  & p {
+    color: #54d1fa;
+  }
+}

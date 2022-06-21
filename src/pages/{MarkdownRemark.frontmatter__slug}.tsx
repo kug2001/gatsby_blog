@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Layout } from '@components/layout';
 import { graphql, PageProps } from "gatsby";
 import { getImage, GatsbyImage, ImageDataLike } from 'gatsby-plugin-image';
 import renderAst from '@common/util/customComponent';
+import { useIntersectionObserver, useIsomorphicLayoutEffect } from '@common/customHooks';
 import * as styles from '@styles/page/contentPage.module.css';
 import 'gatsby-remark-vscode/styles.css';
 import '@styles/components/atom/markdownUtils.css';
+import parse, { HTMLReactParserOptions, Element, DOMNode} from 'html-react-parser';
+import _ from 'lodash';
+import useDebounce from '@common/customHooks/useDebounce';
+
+
+const options: HTMLReactParserOptions = {
+  replace: domNode => {
+    if (domNode instanceof Element && domNode.attribs.href) {
+      const rex = new RegExp('-', 'g');
+      const text = decodeURI(domNode.attribs.href).replace('#', '').replace(rex, ' ');
+      return <a className="toc-link" href={domNode.attribs.href}>{text}</a>;
+    }
+  }
+};
 
 type Props = {
   markdownRemark: {
@@ -25,38 +40,72 @@ const Template = ({data} : PageProps<Props> ) => {
   const { markdownRemark } = data;
   const { frontmatter, tableOfContents, htmlAst } = markdownRemark;
   const heroImage = getImage(frontmatter.hero_image);
+  const [ scrollValue, setScrollValue] = useState<number>(0);
+  const contentHeadRef = useRef<HTMLDivElement | null>(null);
+  const entry = useIntersectionObserver(contentHeadRef, {
+    threshold: [0.2, 0.9],
+    freezeOnceVisible: false,
+  });
 
+  console.log('entry', entry?.isIntersecting);
+  const debounce = useDebounce<number>(scrollValue, 100);
 
-  // const handleIntersectionObserver = (node: Element) => {
-  //   const option:IntersectionObserverInit = {
-  //     root: null,
-  //     threshold: [ 0, 1]
-  //   }
-  //   const observer = new IntersectionObserver(([entry]:IntersectionObserverEntry[]) => {
-  //     entry.intersectionRatio >0.75 && console.log(entry.target, entry)
+  const onScroll = (event:Event) => {
+    const scrollTop = Math.max(
+      window.pageXOffset,
+      document.documentElement.scrollTop,
+      document.body.scrollTop
+    ); 
+    setScrollValue(scrollTop);
+  }
+
+  const handleSetActiveToc = () => {
+    const tocLink:any[] = [].slice.call(document.querySelectorAll('.toc-link'));
+    const anchorLink:any[] = [].slice.call(document.querySelectorAll('.heading-anchor'))
+    .filter((anchor: { hash: string }) => tocLink.some((tocLink: { hash: string; }) => tocLink.hash === anchor.hash));
+
+    const scrollTop = Math.max(
+      window.pageXOffset,
+      document.documentElement.scrollTop,
+      document.body.scrollTop
+    );
+
+    // const scrollHeight = Math.max(
+    //   document.documentElement.scrollHeight,
+    //   document.body.scrollHeight
+    // )
+
+    // const bottomY = window.innerHeight + scrollTop; 
+
+    anchorLink.forEach((link, index) => {
       
-  //   }, option);
+      const nextLinkIsActive = () => anchorLink[index+1]?.parentElement.offsetTop < scrollTop;
+      const isActive = () => !nextLinkIsActive() && link.parentElement.offsetTop < scrollTop;
 
-  //   observer.observe(node);
+      if(isActive()) {
+        tocLink[index].classList.add('active');
+      }
+      else {
+        tocLink[index].classList.remove('active');
+      }
+    })
+  }
 
-  //   return () => observer.disconnect();
-  // }
-  
+  useIsomorphicLayoutEffect(() => {
+    document.addEventListener('scroll', (e) => onScroll(e))
+    return () => document.removeEventListener('scroll', (e) => onScroll(e));
+  });
 
-  // useIsomorphicLayoutEffect(() => {
-  //   if(typeof window !== 'undefined') {
-  //     const nodes = document.querySelectorAll('.heading-anchor');
-  //     nodes.forEach((element) => {
-  //       handleIntersectionObserver(element);
-  //     })
-  //   }
-  // }, []);
+  useEffect(() => {
+    // console.log('debounce');
+    handleSetActiveToc();
+  },[debounce])
   
 
   return (
     <Layout>
       <main className={styles.docMain}>
-        <div className={styles.contentHead}>
+        <div className={styles.contentHead} ref={contentHeadRef}>
           {heroImage && 
             <GatsbyImage
               className={styles.headImage}
@@ -68,13 +117,16 @@ const Template = ({data} : PageProps<Props> ) => {
             <strong className={styles.headData}>{frontmatter.date}</strong>
           </div>
         </div>
-        {/* <div className={styles.areaMarkdown} dangerouslySetInnerHTML={{ __html: html }} /> */}
         <div className={styles.areaMarkdown}>{renderAst(htmlAst)}</div>
-        <div className={styles.tableOfContent} dangerouslySetInnerHTML={{ __html: tableOfContents }}/>
+        <div className={`${styles.tableOfContents} ${!entry?.isIntersecting ? styles.active : ''}`}>
+          {parse(tableOfContents, options)}
+        </div>
       </main>
     </Layout>
   )
 }
+
+// TODO: 추후에 테이블에 대한 마크다운 렌더링 필요
 
 //현재 페이지의 markdownRemark의 id 인자를 보내고 싶을 때는 $id 이렇게 하면 된다.
 export const pageQuery = graphql`
@@ -91,7 +143,7 @@ export const pageQuery = graphql`
           childImageSharp {
             gatsbyImageData(
               layout: FULL_WIDTH
-              aspectRatio: 1.9
+              aspectRatio: 1.5
               transformOptions: {
                 cropFocus: CENTER
               }
